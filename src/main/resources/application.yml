@@ -2,8 +2,13 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active: file-logging
   datasource:
     driver-class-name: 'org.postgresql.Driver'
     url: 'jdbc:postgresql://localhost:5433/test'
     username: 'test'
     password: 'test'
+  logging:
+    file:
+      max-size: 512K

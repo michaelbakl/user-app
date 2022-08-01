@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+
+    <appender name="ROLLING-FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>logs/user-app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/user-app_%d{yyyy-MM-dd_HH}.gz</fileNamePattern>
+            <maxHistory>24</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%t] %p %logger - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <springProfile name="file-only-logging">
+        <root level="WARN">
+            <appender-ref ref="ROLLING-FILE"/>
+        </root>
+        <root level="INFO">
+            <appender-ref ref="ROLLING-FILE"/>
+        </root>
+        <root level="ERROR">
+            <appender-ref ref="ROLLING-FILE"/>
+        </root>
+    </springProfile>
+    <logger name="it.server" level="DEBUG">
+        <appender-ref ref="ROLLING-FILE"/>
+    </logger>
+</configuration>
