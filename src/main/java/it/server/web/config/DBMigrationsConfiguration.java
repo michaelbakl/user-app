@@ -2,7 +2,6 @@ package it.server.web.config;
 
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.FlywayException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,7 +14,6 @@ import javax.sql.DataSource;
 @Configuration
 public class DBMigrationsConfiguration {
 
-  @Autowired
   private final DataSource dataSource;
 
   /**
