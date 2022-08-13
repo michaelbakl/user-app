@@ -1,10 +1,12 @@
 package it.server.core.repository.user;
 
 import it.server.core.model.User;
+import org.springframework.stereotype.Repository;
 
 /**
  * interface for user repositories
  */
+@Repository
 public interface IUserRepository {
 
   /**

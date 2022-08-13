@@ -48,23 +48,9 @@ Use this command to run the project:
 
 The application uses memory or Postgres repositories.
 
-To use memory repository, change the `getUserRepository` method in configuration file *RepositoryConfiguration.java* like this:
+To use Postgres or memory repository, in *application.yml* in *repository* key on sublevel *type* write:
 
-```
-@Bean
-  public IUserRepository getUserRepository() {
-    return new UserRepository();
-  }
-```
-
-To use Postgres repository, change the same method like this:
-
-```
-@Bean
-  public IUserRepository getUserRepository(final JdbcOperations jdbcOperations) {
-    return new PostgresUserRepository(jdbcOperations);
-  }
-```
+`postgres` or `memory`
 
 Requests which can do with a user:
 

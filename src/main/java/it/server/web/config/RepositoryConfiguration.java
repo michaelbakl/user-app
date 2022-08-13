@@ -1,7 +1,8 @@
 package it.server.web.config;
 
+import it.server.core.repository.factory.RepositoryFactory;
 import it.server.core.repository.user.IUserRepository;
-import it.server.core.repository.user.PostgresUserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -13,15 +14,18 @@ import org.springframework.jdbc.core.JdbcOperations;
 @Configuration
 public class RepositoryConfiguration {
 
+  @Value("${repository.type:memory}")
+  private String repositoryName;
+
   /**
    * configuration bean for user repository
    *
    * @param jdbcOperations - jdbc
-   * @return postgres implementation of IUserRepository
+   * @return implementation of IUserRepository
    */
   @Bean
-  public IUserRepository getUserRepository(final JdbcOperations jdbcOperations) {
-    return new PostgresUserRepository(jdbcOperations);
+  public IUserRepository getUserRepository(JdbcOperations jdbcOperations) {
+    return RepositoryFactory.getBean(repositoryName, jdbcOperations);
   }
 
 }

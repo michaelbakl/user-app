@@ -53,7 +53,7 @@ public class DatabaseConfiguration {
    * @param dataSource - data source
    * @return JdbcOperations
    */
-  @Bean
+  @Bean("template")
   @Primary
   public JdbcOperations template(final DataSource dataSource) {
     return new JdbcTemplate(dataSource);

@@ -3,7 +3,6 @@ package it.server.core.repository.user;
 import it.server.core.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,10 +10,9 @@ import java.util.Map;
 /**
  * Memory implementation of IUserRepository
  */
-@Repository
 public class UserRepository implements IUserRepository {
 
-  private final Logger LOGGER = LoggerFactory.getLogger(PostgresUserRepository.class);
+  private final Logger LOGGER = LoggerFactory.getLogger(UserRepository.class);
 
   private final Map<String, User> userMap;
 

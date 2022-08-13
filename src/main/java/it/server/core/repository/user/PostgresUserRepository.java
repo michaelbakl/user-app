@@ -4,12 +4,10 @@ import it.server.core.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.stereotype.Repository;
 
 /**
  * Postgres' implementation of IUserRepository
  */
-@Repository
 public class PostgresUserRepository implements IUserRepository {
 
   private final Logger LOGGER = LoggerFactory.getLogger(PostgresUserRepository.class);

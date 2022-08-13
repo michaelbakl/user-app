@@ -1,6 +1,9 @@
 server:
   port: 8080
 
+repository:
+  type: postgres
+
 spring:
   profiles:
     active: file-logging
