@@ -41,8 +41,7 @@ Compile the application using:
 
 Compiled file will be in the target directory.
 
-Use this command to run the project:
-`java -jar user-app-1.0-SNAPSHOT.jar`
+Using Docker run `docker-compose up -d --build`
 
 ### Using the application
 
@@ -92,4 +91,3 @@ Delete the user by his id.
     "userId": "example-UUID"
 } 
 ```
-

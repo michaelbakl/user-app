@@ -29,7 +29,6 @@ public class DatabaseConfiguration {
   @Value("${spring.datasource.password}")
   private String password;
 
-
   /**
    * data source
    *
